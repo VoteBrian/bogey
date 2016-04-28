@@ -120,8 +120,20 @@ public class ScorecardActivity extends AppCompatActivity {
         rl_scroll.setOnTouchListener(new View.OnTouchListener() {
             float x0 = 0;
             float y0 = 0;
-            double angle0 = 0;
+
             int start = 0;
+
+            int num_segments = 20;  // should be multiple of number of players
+            int segment0;
+            int segment;
+
+            private int calcSegment(float x , float y) {
+                double angle = Math.toDegrees( Math.atan2( y0 - y, x - x0) );
+                if (angle < 0) {
+                    angle = angle + 360;
+                }
+                return (int) Math.floor(angle / 360f * num_segments);
+            }
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -131,36 +143,33 @@ public class ScorecardActivity extends AppCompatActivity {
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        // determine middle point on initial touch
                         x0 = v.getWidth() / 2;
                         y0 = v.getHeight() / 2;
 
-                        angle0 = Math.toDegrees( Math.atan2( y0 - event.getY() , event.getX() - x0 ) );
-                        if (angle0 < 0) {
-                            angle0 = angle0 + 360;
-                        }
-
-                        if ( (angle0 < 90) && (angle0 >= 0)) {
+                        segment0 = calcSegment(event.getX(), event.getY());
+                        if ( (segment0 >= 0) && (segment0 < (num_segments/4)) ){
                             start = NewGameData.NAME1B;
-                        } else if ((angle0 < 180) && (angle0 >=90)) {
+                        } else if ( (segment0 >= (num_segments/4)) && (segment0 < (num_segments/2)) ) {
                             start = NewGameData.NAME1A;
-                        } else if ((angle0 < 270) && (angle0 >= 180)) {
+                        } else if ( (segment0 >= (num_segments/2)) && (segment0 < (3*num_segments/4)) ) {
                             start = NewGameData.NAME2A;
                         } else {
                             start = NewGameData.NAME2B;
                         }
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        angle = Math.toDegrees( Math.atan2( y0 - event.getY() , event.getX() - x0 ) );
-                        if (angle < 0) {
-                            angle = angle + 360;
+                        segment = calcSegment(event.getX(), event.getY());
+                        if (segment == segment0 + 1) {
+                            decrementScore(start);
+                        } else if (segment == segment0 - 1) {
+                            incrementScore(start);
+                        } else if ((segment0 == 0) && (segment == num_segments-1)) {
+                            incrementScore(start);
+                        } else if ((segment0 == num_segments-1) && (segment == 0)) {
+                            decrementScore(start);
                         }
-                        delta_angle = angle0 - angle;
-                        if (delta_angle < 0) {
-                            delta_angle = delta_angle + 360;
-                        }
-
-                        delta = (int) (delta_angle / 10);
-                        updateScore(delta, start);
+                        segment0 = segment;
                         break;
                 }
                 return true;
@@ -219,8 +228,32 @@ public class ScorecardActivity extends AppCompatActivity {
 
     }
 
-    private void updateScore(int value, int position) {
-        tv_raw_scores[curr_hole][position].setText(Integer.toString(value));
+    private void incrementScore(int position) {
+        int score = getCurrScore(position);
+        tv_raw_scores[curr_hole][position].setText(Integer.toString(score + 1));
+    }
+
+    private void decrementScore(int position) {
+        int score = getCurrScore(position);
+        if (score == 0) {
+            tv_raw_scores[curr_hole][position].setText(Integer.toString(0));
+        } else {
+            tv_raw_scores[curr_hole][position].setText(Integer.toString(score - 1));
+        }
+    }
+
+    private int getCurrScore (int position) {
+        int prev_score;
+
+        // get current score
+        try {
+            prev_score = Integer.parseInt( tv_raw_scores[curr_hole][position].getText().toString() );
+        } catch (NumberFormatException nfe) {
+            // should be a "-"  treat as 0
+            prev_score = 0;
+        }
+
+        return prev_score;
     }
 
     private void highlightHole(int hole) {
