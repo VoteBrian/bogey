@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/block_indiv_strokes_1"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@android:drawable/presence_online"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/block_indiv_strokes_2"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/block_indiv_strokes_1"
+        android:src="@android:drawable/presence_online"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/block_match_strokes_1"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@android:drawable/presence_invisible"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/block_match_strokes_2"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toLeftOf="@id/block_match_strokes_1"
+        android:src="@android:drawable/presence_invisible"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/score_raw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="@dimen/textsize_inactive"
+        android:text="@string/empty_score"/>
+
+</RelativeLayout>

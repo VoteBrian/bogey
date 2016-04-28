@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.tacostudios.apps.bogey.CreateGameActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Golf Course" />
+
+    <Spinner
+        android:id="@+id/spinner_course_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/side_selection_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/card_horizontal_margin"
+        android:paddingEnd="@dimen/card_horizontal_margin">
+
+        <CheckBox
+            android:id="@+id/checkBox_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="Back 9" />
+
+        <Space
+            android:id="@+id/checkBox_spacer"
+            android:layout_width="@dimen/card_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/checkBox_back"
+            android:layout_toStartOf="@id/checkBox_back" />
+
+        <CheckBox
+            android:id="@+id/checkBox_front"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/checkBox_spacer"
+            android:layout_toStartOf="@id/checkBox_spacer"
+            android:checked="true"
+            android:text="Front 9" />
+
+    </RelativeLayout>
+    
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Team 1" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="HDCP" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/rank_label_1a"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="A" />
+
+        <EditText
+            android:id="@+id/edit_name1a"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:inputType="textCapSentences|textPersonName"
+            android:hint="@string/new_game_player_name_hint" />
+
+        <EditText
+            android:id="@+id/handicap1A"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:text="8" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/rank_label_1b"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="B" />
+
+        <EditText
+            android:id="@+id/edit_name1b"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:inputType="textCapSentences|textPersonName"
+            android:hint="@string/new_game_player_name_hint" />
+
+        <EditText
+            android:id="@+id/handicap1B"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:text="8" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Team 2" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="HDCP" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/rank_label_2a"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="A" />
+
+        <EditText
+            android:id="@+id/edit_name2a"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:inputType="textCapSentences|textPersonName"
+            android:hint="@string/new_game_player_name_hint" />
+
+        <EditText
+            android:id="@+id/handicap2A"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:text="8" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/rank_label_2b"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="B" />
+
+        <EditText
+            android:id="@+id/edit_name2b"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:inputType="textCapSentences|textPersonName"
+            android:hint="@string/new_game_player_name_hint" />
+
+        <EditText
+            android:id="@+id/handicap2B"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:text="8" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <Button
+        android:id="@+id/btn_create_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="START GAME"/>
+
+</LinearLayout>

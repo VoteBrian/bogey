@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@color/color_bg"
+    tools:context="com.tacostudios.apps.bogey.ScorecardActivity">
+
+    <TextView
+        android:id="@+id/textview_course_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:text="@string/empty_course_name"/>
+
+    <LinearLayout
+        android:id="@+id/scoreboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/card_vertical_margin"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height"
+                android:background="@color/color_1a" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height"
+                android:background="@color/color_1b" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_spacer" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height"
+                android:background="@color/color_2a" />
+
+            <TextView
+                android:layout_width="@dimen/scoreboard_indicator"
+                android:layout_height="@dimen/scoreboard_height"
+                android:background="@color/color_2b" />
+
+        </LinearLayout>
+
+        <!-- Rank icons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center"
+                android:text="A"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center"
+                android:text="B"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_spacer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center"
+                android:text="A"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:gravity="center"
+                android:text="B"/>
+
+        </LinearLayout>
+
+        <!-- Player Names -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|end"
+                android:textSize="14sp"
+                android:text="Hole" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|end"
+                android:textSize="14sp"
+                android:text="Par" />
+
+            <TextView
+                android:id="@+id/score_name1a"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|right|end"
+                android:textSize="@dimen/textsize_inactive"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/score_name1b"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|right|end"
+                android:textSize="@dimen/textsize_inactive"
+                android:text="Name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_spacer" />
+
+            <TextView
+                android:id="@+id/score_name2a"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|right|end"
+                android:textSize="@dimen/textsize_inactive"
+                android:text="Name"/>
+
+            <TextView
+                android:id="@+id/score_name2b"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|right|end"
+                android:textSize="@dimen/textsize_inactive"
+                android:text="Name"/>
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/scoreboard_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+
+
+    <!--
+    <LinearLayout
+        android:id="@+id/scroll_region"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_circle_a"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/scroll_name1a"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="NAME1A" />
+
+            <TextView
+                android:id="@+id/scroll_name1b"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="NAME1B" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/scroll_name2a"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="NAME2A" />
+
+            <TextView
+                android:id="@+id/scroll_name2b"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="NAME2B" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    -->
+
+    <RelativeLayout
+        android:id="@+id/scroll_region"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_circle_a" >
+
+        <View
+            android:id="@+id/centerVerticalShim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerVertical="true"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/centerHorizontalShim"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/centerVerticalShim"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/centerHorizontalShim"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/scroll_name1a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:background="@color/color_bg"
+                android:text="NAME1A" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/centerVerticalShim"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/centerHorizontalShim"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/scroll_name1b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:background="@color/color_bg"
+                android:text="NAME1B" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/centerVerticalShim"
+            android:layout_toLeftOf="@+id/centerHorizontalShim"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/scroll_name2a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:background="@color/color_bg"
+                android:text="NAME2A" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/centerVerticalShim"
+            android:layout_toRightOf="@+id/centerHorizontalShim"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/scroll_name2b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:background="@color/color_bg"
+                android:text="NAME2B" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

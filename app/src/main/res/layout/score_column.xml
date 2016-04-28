@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- HOLE -->
+    <TextView
+        android:id="@+id/column_hole"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="@string/empty_score" />
+
+    <!-- PAR -->
+    <TextView
+        android:id="@+id/column_par"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="@string/empty_score" />
+
+    <!-- 1A -->
+    <include
+        android:id="@+id/column_raw1a"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        layout="@layout/score_block" />
+
+    <!-- 1B -->
+    <include
+        android:id="@+id/column_raw1b"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        layout="@layout/score_block" />
+
+    <!--
+    <TextView
+        android:id="@+id/column_raw1b"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center"
+        android:textSize="@dimen/textsize_inactive"
+        android:hint="@string/empty_score"/>
+    -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/scoreboard_spacer" />
+
+    <!-- 2A -->
+    <include
+        android:id="@+id/column_raw2a"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        layout="@layout/score_block" />
+
+    <!--
+    <TextView
+        android:id="@+id/column_raw2a"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center"
+        android:textSize="@dimen/textsize_inactive"
+        android:hint="@string/empty_score"/>
+    -->
+
+    <!-- 2B -->
+    <include
+        android:id="@+id/column_raw2b"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        layout="@layout/score_block" />
+
+    <!--
+    <TextView
+        android:id="@+id/column_raw2b"
+        android:layout_width="@dimen/scoreboard_width"
+        android:layout_height="@dimen/scoreboard_height"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center"
+        android:textSize="@dimen/textsize_inactive"
+        android:hint="@string/empty_score"/>
+    -->
+
+</LinearLayout>
