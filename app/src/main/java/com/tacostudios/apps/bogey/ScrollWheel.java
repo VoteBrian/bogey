@@ -23,10 +23,14 @@ public class ScrollWheel extends View {
     private float height;
     private float radius;
 
+    private String[] names = {"Name1A", "Name1B", "Name2A", "Name2B"};
+
     private int segments = 16;
 
     public ScrollWheel(Context context, AttributeSet attr) {
         super(context, attr);
+
+        // names = new String[NewGameData.NUM_PLAYERS];
 
         init();
     }
@@ -81,19 +85,24 @@ public class ScrollWheel extends View {
 
         Path name = new Path();
         name.addArc(rect, 180, 90);
-        canvas.drawTextOnPath("Jed", name, 0, -text_size/4, text_paint);
+        canvas.drawTextOnPath(names[0], name, 0, -text_size/4, text_paint);
 
         name = new Path();
         name.addArc(rect, 270, 90);
-        canvas.drawTextOnPath("Brian", name, 0, -text_size/4, text_paint);
+        canvas.drawTextOnPath(names[1], name, 0, -text_size/4, text_paint);
 
         name = new Path();
         name.addArc(rect, 90, 90);
-        canvas.drawTextOnPath("Erricola", name, 0, -text_size/4, text_paint);
+        canvas.drawTextOnPath(names[2], name, 0, -text_size/4, text_paint);
 
         name = new Path();
         name.addArc(rect, 0, 90);
-        canvas.drawTextOnPath("Bradford", name, 0, -text_size/4, text_paint);
+        canvas.drawTextOnPath(names[3], name, 0, -text_size/4, text_paint);
+    }
+
+    public void setNames (String player_names[]) {
+        names = player_names;
+        invalidate();
     }
 
 }

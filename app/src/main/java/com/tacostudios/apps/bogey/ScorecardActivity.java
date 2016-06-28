@@ -72,6 +72,8 @@ public class ScorecardActivity extends AppCompatActivity {
     TextView v_sum_header;
     TextView v_player_sum[];
 
+    ScrollWheel scrollwheel;
+
 
     int curr_hole = 0;
 
@@ -189,6 +191,9 @@ public class ScorecardActivity extends AppCompatActivity {
         v_course_name = (TextView) findViewById(R.id.textview_course_name);
         v_course_name.setText(course_name);
 
+        // scrollwheel
+        scrollwheel = (ScrollWheel) findViewById (R.id.scrollwheel);
+
         // Player Names
         v_names = new TextView[NewGameData.NUM_PLAYERS];
         v_names[NewGameData.NAME1A] = (TextView) findViewById(R.id.score_name1a);
@@ -207,6 +212,9 @@ public class ScorecardActivity extends AppCompatActivity {
             v_names[player].setText(player_name[player]);
             v_scroll_names[player].setText(player_name[player]);
         }
+
+        // scrollwheel set names
+        scrollwheel.setNames (player_name);
 
         // Add score columns for each hole to be played
         // handle to container layout
