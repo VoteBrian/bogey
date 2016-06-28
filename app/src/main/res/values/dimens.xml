@@ -9,13 +9,16 @@
     <dimen name="card_vertical_separation">5dp</dimen>
 
     <dimen name="scoreboard_indicator">10dp</dimen>
-    <dimen name="scoreboard_height">40dp</dimen>
-    <dimen name="scoreboard_width">40dp</dimen>
+    <dimen name="scoreboard_height">50dp</dimen>
+    <dimen name="scoreboard_width">50dp</dimen>
     <dimen name="scoreboard_name_width">100dp</dimen>
     <dimen name="scoreboard_spacer">10dp</dimen>
 
-    <dimen name="textsize_active">24sp</dimen>
-    <dimen name="textsize_inactive">16sp</dimen>
+    <dimen name="scoreboard_aux_height">30dp</dimen>
+
+    <dimen name="textsize_aux">16sp</dimen>
+    <dimen name="textsize_active">32sp</dimen>
+    <dimen name="textsize_inactive">22sp</dimen>
 
     <dimen name="scroll_name_w">100dp</dimen>
     <dimen name="scroll_name_h">40dp</dimen>

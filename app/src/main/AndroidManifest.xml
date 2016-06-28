@@ -8,10 +8,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".GamesActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +23,13 @@
 
         <activity
             android:name=".CreateGameActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".ScorecardActivity"></activity>
+        <activity
+            android:name=".ScorecardActivity"
+            android:screenOrientation="portrait" />
+        
     </application>
 
 </manifest>

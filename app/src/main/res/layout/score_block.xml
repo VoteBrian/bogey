@@ -1,55 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    card_view:contentPadding="0dp"
+    card_view:cardElevation="0dp"
+    card_view:cardCornerRadius="0dp" >
 
-    <ImageView
-        android:id="@+id/block_indiv_strokes_1"
-        android:layout_width="4dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:src="@android:drawable/presence_online"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/block_indiv_strokes_2"
-        android:layout_width="4dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_toRightOf="@id/block_indiv_strokes_1"
-        android:src="@android:drawable/presence_online"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/block_match_strokes_1"
-        android:layout_width="4dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:src="@android:drawable/presence_invisible"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/block_match_strokes_2"
-        android:layout_width="4dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@id/block_match_strokes_1"
-        android:src="@android:drawable/presence_invisible"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/score_raw"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="@dimen/textsize_inactive"
-        android:text="@string/empty_score"/>
+        android:layout_height="match_parent" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/score_raw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/textsize_inactive"
+            android:text="@string/empty_score"/>
+
+        <ImageView
+            android:id="@+id/indiv_strokes_1"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:src="@android:drawable/presence_online"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/indiv_strokes_2"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/indiv_strokes_1"
+            android:src="@android:drawable/presence_online"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/match_strokes_1"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/presence_invisible"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/match_strokes_2"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@id/match_strokes_1"
+            android:src="@android:drawable/presence_invisible"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/indiv_win"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/win"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/match_win"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/match_win"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -20,6 +20,7 @@ public class DbAdapter {
     String KEY_COURSES_NAME = "name";
     String KEY_COURSES_DESC = "desc";
     String KEY_COURSES_PARID = "par_id";
+    String KEY_COURSES_HDCPID = "hdcp_id";
 
     String DB_TABLE_GAMES = "Game";
     String KEY_GAMES_ID = "_id";
@@ -39,8 +40,15 @@ public class DbAdapter {
     String KEY_GAMES_SCORE2A = "score_id_2a";
     String KEY_GAMES_SCORE2B = "score_id_2b";
 
+    String DB_TABLE_SCORES = "Score";
+    String KEY_SCORE_ID = "_id";
+
     String DB_TABLE_PAR = "Par";
     String KEY_PAR_ID = "_id";
+
+    String DB_TABLE_HDCP = "HDCP";
+    String KEY_HDCP_ID = "_id";
+
     String KEY_HOLE_01 = "hole_01";
     String KEY_HOLE_02 = "hole_02";
     String KEY_HOLE_03 = "hole_03";
@@ -174,6 +182,33 @@ public class DbAdapter {
     public long createGame (NewGameData gameData) {
         ContentValues values = new ContentValues();
 
+        values.put(KEY_HOLE_01, 0);
+        values.put(KEY_HOLE_02, 0);
+        values.put(KEY_HOLE_03, 0);
+        values.put(KEY_HOLE_04, 0);
+        values.put(KEY_HOLE_05, 0);
+        values.put(KEY_HOLE_06, 0);
+        values.put(KEY_HOLE_07, 0);
+        values.put(KEY_HOLE_08, 0);
+        values.put(KEY_HOLE_09, 0);
+        values.put(KEY_HOLE_10, 0);
+        values.put(KEY_HOLE_11, 0);
+        values.put(KEY_HOLE_12, 0);
+        values.put(KEY_HOLE_13, 0);
+        values.put(KEY_HOLE_14, 0);
+        values.put(KEY_HOLE_15, 0);
+        values.put(KEY_HOLE_16, 0);
+        values.put(KEY_HOLE_17, 0);
+        values.put(KEY_HOLE_18, 0);
+
+        long score_id[] = new long[NewGameData.NUM_PLAYERS];
+        for (int player = 0; player < NewGameData.NUM_PLAYERS; player++) {
+            score_id[player] = helper.database.insert(DB_TABLE_SCORES, null, values);
+        }
+
+
+        values = new ContentValues();
+
         SimpleDateFormat formatter = new SimpleDateFormat("MMM-dd-yyyy");
         Date today = Calendar.getInstance().getTime();
         String date = formatter.format(today);
@@ -181,6 +216,11 @@ public class DbAdapter {
 
         values.put(KEY_GAMES_COURSEID, gameData.courseID);
         values.put(KEY_GAMES_SIDES, gameData.sides);
+
+        values.put(KEY_GAMES_SCORE1A, score_id[0]);
+        values.put(KEY_GAMES_SCORE1B, score_id[1]);
+        values.put(KEY_GAMES_SCORE2A, score_id[2]);
+        values.put(KEY_GAMES_SCORE2B, score_id[3]);
 
         values.put(KEY_GAMES_NAME1A, gameData.names[NewGameData.NAME1A]);
         values.put(KEY_GAMES_NAME1B, gameData.names[NewGameData.NAME1B]);
@@ -267,6 +307,52 @@ public class DbAdapter {
         return gameData;
     }
 
+    public int[] getScores(int score_id) {
+        int scores[] = new int[18];
+
+        Cursor cursor = helper.database.query(
+                false,               // distinct
+                DB_TABLE_SCORES,     // table
+                new String[] {KEY_HOLE_01, KEY_HOLE_02, KEY_HOLE_03,
+                              KEY_HOLE_04, KEY_HOLE_05, KEY_HOLE_06,
+                              KEY_HOLE_07, KEY_HOLE_08, KEY_HOLE_09,
+                              KEY_HOLE_10, KEY_HOLE_11, KEY_HOLE_12,
+                              KEY_HOLE_13, KEY_HOLE_14, KEY_HOLE_15,
+                              KEY_HOLE_16, KEY_HOLE_17, KEY_HOLE_18 },
+                // columns
+                KEY_SCORE_ID + "=?",
+                // selection
+                new String[] {"" + score_id},
+                // selectionArgs
+                null,                // groupBy
+                null,                // having
+                null,                // orderBy
+                null                 // limit
+                );
+        cursor.moveToFirst();
+
+        scores[0] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_01));
+        scores[1] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_02));
+        scores[2] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_03));
+        scores[3] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_04));
+        scores[4] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_05));
+        scores[5] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_06));
+        scores[6] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_07));
+        scores[7] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_08));
+        scores[8] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_09));
+        scores[9] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_10));
+        scores[10] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_11));
+        scores[11] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_12));
+        scores[12] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_13));
+        scores[13] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_14));
+        scores[14] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_15));
+        scores[15] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_16));
+        scores[16] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_17));
+        scores[17] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_18));
+
+        return scores;
+    }
+
     public int[] getPars(int course_id) {
         int pars[] = new int[18];
 
@@ -328,5 +414,123 @@ public class DbAdapter {
         pars[17] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_18));
 
         return pars;
+    }
+
+    public void saveHoleData(int score_id, int player, int hole, int score) {
+        ContentValues values = new ContentValues();
+
+        String key_string = getKeyString(hole);
+        values.put(key_string, score);
+
+        helper.database.update(DB_TABLE_SCORES, values, "_id=?", new String[] {"" + score_id});
+    }
+
+    private String getKeyString(int hole) {
+        switch (hole) {
+            case 0:
+                return KEY_HOLE_01;
+            case 1:
+                return KEY_HOLE_02;
+            case 2:
+                return KEY_HOLE_03;
+            case 3:
+                return KEY_HOLE_04;
+            case 4:
+                return KEY_HOLE_05;
+            case 5:
+                return KEY_HOLE_06;
+            case 6:
+                return KEY_HOLE_07;
+            case 7:
+                return KEY_HOLE_08;
+            case 8:
+                return KEY_HOLE_09;
+            case 9:
+                return KEY_HOLE_10;
+            case 10:
+                return KEY_HOLE_11;
+            case 11:
+                return KEY_HOLE_12;
+            case 12:
+                return KEY_HOLE_13;
+            case 13:
+                return KEY_HOLE_14;
+            case 14:
+                return KEY_HOLE_15;
+            case 15:
+                return KEY_HOLE_16;
+            case 16:
+                return KEY_HOLE_17;
+            case 17:
+                return KEY_HOLE_18;
+        }
+
+        return "";
+    }
+
+    public int[] getHoleRank(int handicap_id) {
+        int rank[] = new int[18];
+
+        Cursor cursor = helper.database.query(
+                false,               // distinct
+                DB_TABLE_HDCP,       // table
+                new String[] {KEY_HOLE_01, KEY_HOLE_02, KEY_HOLE_03,
+                        KEY_HOLE_04, KEY_HOLE_05, KEY_HOLE_06,
+                        KEY_HOLE_07, KEY_HOLE_08, KEY_HOLE_09,
+                        KEY_HOLE_10, KEY_HOLE_11, KEY_HOLE_12,
+                        KEY_HOLE_13, KEY_HOLE_14, KEY_HOLE_15,
+                        KEY_HOLE_16, KEY_HOLE_17, KEY_HOLE_18 },
+                // columns
+                KEY_HDCP_ID + "=?",
+                // selection
+                new String[] {"" + handicap_id},
+                // selectionArgs
+                null,                // groupBy
+                null,                // having
+                null,                // orderBy
+                null                 // limit
+        );
+        cursor.moveToFirst();
+
+        rank[0] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_01));
+        rank[1] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_02));
+        rank[2] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_03));
+        rank[3] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_04));
+        rank[4] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_05));
+        rank[5] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_06));
+        rank[6] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_07));
+        rank[7] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_08));
+        rank[8] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_09));
+        rank[9] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_10));
+        rank[10] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_11));
+        rank[11] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_12));
+        rank[12] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_13));
+        rank[13] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_14));
+        rank[14] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_15));
+        rank[15] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_16));
+        rank[16] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_17));
+        rank[17] = cursor.getInt(cursor.getColumnIndex(KEY_HOLE_18));
+
+        return rank;
+    }
+
+    public int getHandicapID(int course_id) {
+        Cursor cursor = helper.database.query(
+                false,               // distinct
+                DB_TABLE_COURSES,    // table
+                new String[] {KEY_COURSES_ID, KEY_COURSES_HDCPID},
+                // columns
+                KEY_COURSES_ID + "=?",
+                // selection
+                new String[] {"" + course_id},
+                // selectionArgs
+                null,                // groupBy
+                null,                // having
+                null,                // orderBy
+                null                 // limit
+        );
+        cursor.moveToFirst();
+
+        return cursor.getInt(cursor.getColumnIndex(KEY_COURSES_HDCPID));
     }
 }

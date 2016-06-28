@@ -27,45 +27,6 @@
         android:paddingTop="@dimen/card_vertical_margin"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height"
-                android:background="@color/color_1a" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height"
-                android:background="@color/color_1b" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_spacer" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height"
-                android:background="@color/color_2a" />
-
-            <TextView
-                android:layout_width="@dimen/scoreboard_indicator"
-                android:layout_height="@dimen/scoreboard_height"
-                android:background="@color/color_2b" />
-
-        </LinearLayout>
-
         <!-- Rank icons -->
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,12 +37,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_height"
-                android:gravity="center" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_height"
+                android:layout_height="@dimen/scoreboard_aux_height"
                 android:gravity="center" />
 
             <TextView
@@ -98,7 +54,8 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_spacer" />
+                android:layout_height="@dimen/scoreboard_aux_height"
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,6 +68,11 @@
                 android:layout_height="@dimen/scoreboard_height"
                 android:gravity="center"
                 android:text="B"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/scoreboard_aux_height"
+                android:gravity="center" />
 
         </LinearLayout>
 
@@ -122,72 +84,78 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/scoreboard_aux_height"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:gravity="center_vertical|end"
-                android:textSize="14sp"
-                android:text="Hole" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_height"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:gravity="center_vertical|end"
-                android:textSize="14sp"
-                android:text="Par" />
+                android:gravity="center_vertical|left|start"
+                android:textSize="@dimen/textsize_aux"
+                android:text="@string/hole" />
 
             <TextView
                 android:id="@+id/score_name1a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/scoreboard_height"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:gravity="center_vertical|right|end"
+                android:gravity="center_vertical|left|start"
                 android:textSize="@dimen/textsize_inactive"
                 android:text="Name" />
 
             <TextView
                 android:id="@+id/score_name1b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/scoreboard_height"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:gravity="center_vertical|right|end"
+                android:gravity="center_vertical|left|start"
                 android:textSize="@dimen/textsize_inactive"
                 android:text="Name"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/scoreboard_spacer" />
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/scoreboard_aux_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|left|start"
+                android:textSize="@dimen/textsize_aux"
+                android:text="@string/par" />
 
             <TextView
                 android:id="@+id/score_name2a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/scoreboard_height"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:gravity="center_vertical|right|end"
+                android:gravity="center_vertical|left|start"
                 android:textSize="@dimen/textsize_inactive"
                 android:text="Name"/>
 
             <TextView
                 android:id="@+id/score_name2b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/scoreboard_height"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:gravity="center_vertical|right|end"
+                android:gravity="center_vertical|left|start"
                 android:textSize="@dimen/textsize_inactive"
                 android:text="Name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/scoreboard_aux_height"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:gravity="center_vertical|left|start"
+                android:textSize="@dimen/textsize_aux"
+                android:text="@string/handicap" />
 
         </LinearLayout>
 
         <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/scoreboard_data"
@@ -199,177 +167,219 @@
 
         </HorizontalScrollView>
 
+        <!-- Player Totals -->
+        <include
+            android:id="@+id/sum_column"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/score_column" />
+
     </LinearLayout>
 
 
-
-    <!--
+    <!-- Lower Section -->
     <LinearLayout
-        android:id="@+id/scroll_region"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/bg_circle_a"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/scroll_name1a"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="NAME1A" />
-
-            <TextView
-                android:id="@+id/scroll_name1b"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="NAME1B" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/scroll_name2a"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="NAME2A" />
-
-            <TextView
-                android:id="@+id/scroll_name2b"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="NAME2B" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-    -->
-
-    <RelativeLayout
-        android:id="@+id/scroll_region"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_circle_a" >
+        android:orientation="horizontal" >
 
-        <View
-            android:id="@+id/centerVerticalShim"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_centerVertical="true"
-            android:visibility="invisible" />
-
-        <View
-            android:id="@+id/centerHorizontalShim"
+        <!-- TEAM SCORES -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:visibility="invisible" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/centerVerticalShim"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/centerHorizontalShim"
-            android:gravity="center" >
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/scroll_name1a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
+                android:id="@+id/match_score_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="24sp"
-                android:background="@color/color_bg"
-                android:text="NAME1A" />
+                android:textSize="28sp"
+                android:text="8"/>
+
+            <TextView
+                android:id="@+id/match_score_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="28sp"
+                android:text="8"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/centerVerticalShim"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/centerHorizontalShim"
-            android:gravity="center" >
 
+        <!-- SCROLL WHEEL -->
+        <RelativeLayout
+            android:id="@+id/scroll_region"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@drawable/bg_circle_a" >
+
+            <!-- SHIMS -->
+            <View
+                android:id="@+id/centerVerticalShim"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_centerVertical="true"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/centerHorizontalShim"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
+
+            <!-- INDIVIDUAL SCORES/NAMES -->
             <TextView
-                android:id="@+id/scroll_name1b"
+                android:id="@+id/indiv_score1a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:background="@color/color_bg"
-                android:text="NAME1B" />
+                android:layout_above="@+id/centerVerticalShim"
+                android:layout_toLeftOf="@+id/centerHorizontalShim"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:text="--" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/centerVerticalShim"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/centerHorizontalShim"
+                android:gravity="center" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/centerVerticalShim"
-            android:layout_toLeftOf="@+id/centerHorizontalShim"
-            android:gravity="center" >
+                <TextView
+                    android:id="@+id/scroll_name1a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@color/color_bg"
+                    android:text="NAME1A"
+                    android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/scroll_name2a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:background="@color/color_bg"
-                android:text="NAME2A" />
+            </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/centerVerticalShim"
-            android:layout_toRightOf="@+id/centerHorizontalShim"
-            android:gravity="center" >
 
             <TextView
-                android:id="@+id/scroll_name2b"
+                android:id="@+id/indiv_score1b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:background="@color/color_bg"
-                android:text="NAME2B" />
+                android:layout_above="@+id/centerVerticalShim"
+                android:layout_toRightOf="@+id/centerHorizontalShim"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:text="--" />
 
-        </LinearLayout>
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/centerVerticalShim"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/centerHorizontalShim"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/scroll_name1b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@color/color_bg"
+                    android:text="NAME1B"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/indiv_score2a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/centerVerticalShim"
+                android:layout_toLeftOf="@+id/centerHorizontalShim"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:text="--" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/centerVerticalShim"
+                android:layout_toLeftOf="@+id/centerHorizontalShim"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/scroll_name2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@color/color_bg"
+                    android:text="NAME2A"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/indiv_score2b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/centerVerticalShim"
+                android:layout_toRightOf="@+id/centerHorizontalShim"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:text="--" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/centerVerticalShim"
+                android:layout_toRightOf="@+id/centerHorizontalShim"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/scroll_name2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@color/color_bg"
+                    android:text="NAME2B"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <!--
+            <com.tacostudios.apps.bogey.ScrollWheel
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true" />
+            -->
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
